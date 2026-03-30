@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices de francais vers polonais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="eyebrow">Francais -> Polonais</p>
+        <h1>Exercices de vocabulaire pour apprendre les mots de nourriture.</h1>
+        <p class="intro">
+          L'eleve peut traduire, ecouter un mot en francais et associer une
+          image avec le bon nom francais. Les reponses correctes sont verifiees
+          tout de suite.
+        </p>
+      </section>
+
+      <section class="panel stats-panel">
+        <div>
+          <p class="stat-label">Bonnes reponses</p>
+          <p class="stat-value"><span id="correct-count">0</span> / <span id="total-count">0</span></p>
+        </div>
+        <div>
+          <p class="stat-label">Resultat</p>
+          <p class="stat-value" id="score-rate">0%</p>
+        </div>
+        <button class="ghost-button" id="reset-progress" type="button">Reinitialiser</button>
+      </section>
+
+      <section class="panel exercises-panel">
+        <div class="panel-header">
+          <h2>Traduction ecrite</h2>
+          <p>Ecris la reponse en polonais, puis clique sur verifier.</p>
+        </div>
+        <div id="exercise-list" class="exercise-list"></div>
+      </section>
+
+      <section class="panel exercises-panel">
+        <div class="panel-header">
+          <h2>Ecoute</h2>
+          <p>Ecoute le mot en francais et ecris la traduction en polonais.</p>
+        </div>
+        <div id="audio-exercise-list" class="exercise-list"></div>
+      </section>
+
+      <section class="panel exercises-panel">
+        <div class="panel-header">
+          <h2>Associer l'image au mot francais</h2>
+          <p>Regarde l'image et choisis le bon mot en francais.</p>
+        </div>
+        <div id="image-exercise-list" class="image-exercise-list"></div>
+      </section>
+    </main>
+
+    <template id="exercise-template">
+      <article class="exercise-card">
+        <div class="exercise-top">
+          <p class="exercise-label">Traduire en polonais</p>
+          <span class="exercise-number"></span>
+        </div>
+        <h3 class="exercise-word"></h3>
+        <label class="answer-label">
+          Ta reponse
+          <input class="answer-input" type="text" autocomplete="off" />
+        </label>
+        <div class="actions">
+          <button class="check-button" type="button">Verifier</button>
+          <button class="show-button" type="button">Montrer la reponse</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </template>
+
+    <template id="audio-exercise-template">
+      <article class="exercise-card">
+        <div class="exercise-top">
+          <p class="exercise-label">Ecouter et traduire</p>
+          <span class="exercise-number"></span>
+        </div>
+        <button class="listen-button" type="button">Ecouter le mot</button>
+        <label class="answer-label">
+          Ta reponse en polonais
+          <input class="answer-input" type="text" autocomplete="off" />
+        </label>
+        <div class="actions">
+          <button class="check-button" type="button">Verifier</button>
+          <button class="show-button" type="button">Montrer la reponse</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </template>
+
+    <template id="image-exercise-template">
+      <article class="exercise-card image-card">
+        <div class="exercise-top">
+          <p class="exercise-label">Choisir le mot francais</p>
+          <span class="exercise-number"></span>
+        </div>
+        <div class="image-visual">
+          <img class="image-photo" alt="" />
+        </div>
+        <label class="answer-label">
+          Mot francais
+          <select class="match-select">
+            <option value="">Choisir une reponse</option>
+          </select>
+        </label>
+        <div class="actions">
+          <button class="check-button" type="button">Verifier</button>
+        </div>
+        <p class="feedback" aria-live="polite"></p>
+      </article>
+    </template>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
